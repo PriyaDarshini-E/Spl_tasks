@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="salaryForm">
+  <input type="text" id="employeeName" placeholder="Employee Name">
+  <br><br>
+
+  <input type="number" id="salary" placeholder="Salary">
+  <br><br>
+
+  <button type="submit">Calculate</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+    const form = document.getElementById("salaryForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("employeeName").value;
+  const salary = Number(document.getElementById("salary").value);
+
+  let bonus;
+
+  if (salary > 30000) {
+    bonus = 5000;
+  } else if (salary > 20000) {
+    bonus = 3000;
+  } else {
+    bonus = 1000;
+  }
+
+  const finalSalary = salary + bonus;
+
+  result.textContent =
+    `${name} | Bonus: ₹${bonus} | Final Salary: ₹${finalSalary}`;
+});
+</script>
+</body>
+</html>

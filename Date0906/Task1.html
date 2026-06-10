@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="loginForm">
+  <input type="email" id="email" placeholder="Enter Email">
+  <br><br>
+
+  <input type="password" id="password" placeholder="Enter Password">
+  <br><br>
+
+  <button type="submit">Login</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+    const form = document.getElementById("loginForm");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (email === "") {
+    message.textContent = "Email Required";
+  } 
+  else if (password.length < 6) {
+    message.textContent = "Password must be at least 6 characters";
+  } 
+  else {
+    message.textContent = "Login Successful";
+  }
+});
+</script>
+</body>
+</html>

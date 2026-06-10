@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="gradeForm">
+  <input type="text" id="studentName" placeholder="Student Name">
+  <br><br>
+
+  <input type="number" id="mark" placeholder="Enter Mark">
+  <br><br>
+
+  <button type="submit">Check Grade</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+    const form = document.getElementById("gradeForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("studentName").value;
+  const mark = Number(document.getElementById("mark").value);
+
+  let grade;
+
+  if (mark >= 90) {
+    grade = "A";
+  } else if (mark >= 75) {
+    grade = "B";
+  } else if (mark >= 50) {
+    grade = "C";
+  } else {
+    grade = "Fail";
+  }
+
+  result.textContent = `${name} - Grade: ${grade}`;
+});
+</script>
+</body>
+</html>

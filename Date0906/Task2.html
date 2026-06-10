@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="productForm">
+  <input type="text" id="productName" placeholder="Product Name">
+  <br><br>
+
+  <input type="number" id="price" placeholder="Price">
+  <br><br>
+
+  <input type="number" id="quantity" placeholder="Quantity">
+  <br><br>
+
+  <button type="submit">Calculate</button>
+</form>
+
+<h3 id="total"></h3>
+<p id="message"></p>
+
+<script>
+    const form = document.getElementById("productForm");
+const totalEl = document.getElementById("total");
+const messageEl = document.getElementById("message");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const price = Number(document.getElementById("price").value);
+  const quantity = Number(document.getElementById("quantity").value);
+
+  const total = price * quantity;
+
+  totalEl.textContent = `Total Amount: ₹${total}`;
+
+  if (total > 5000) {
+    messageEl.textContent = "Discount Eligible";
+  } else {
+    messageEl.textContent = "";
+  }
+});
+</script>
+</body>
+</html>

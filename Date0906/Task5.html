@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Todo App</h2>
+
+<input type="text" id="taskInput" placeholder="Enter Task">
+<button id="addBtn">Add Task</button>
+
+<h3>Total Tasks: <span id="taskCount">0</span></h3>
+
+<ul id="taskList"></ul>
+
+<p id="message">No Tasks Available</p>
+
+<script>
+    const taskInput = document.getElementById("taskInput");
+const addBtn = document.getElementById("addBtn");
+const taskList = document.getElementById("taskList");
+const taskCount = document.getElementById("taskCount");
+const message = document.getElementById("message");
+
+const updateTaskCount =() =>{
+  const totalTasks = taskList.children.length;
+  taskCount.textContent = totalTasks;
+
+  if (totalTasks === 0) {
+    message.textContent = "No Tasks Available";
+  } else {
+    message.textContent = "";
+  }
+}
+
+addBtn.addEventListener("click", function () {
+  const task = taskInput.value.trim();
+
+  if (task === "") return;
+
+  const li = document.createElement("li");
+
+  li.innerHTML = `
+    ${task}
+    <button class="deleteBtn">Delete</button>
+  `;
+
+  taskList.appendChild(li);
+
+  taskInput.value = "";
+
+  updateTaskCount();
+});
+
+taskList.addEventListener("click", function (e) {
+  if (e.target.classList.contains("deleteBtn")) {
+    e.target.parentElement.remove();
+    updateTaskCount();
+  }
+});
+
+updateTaskCount();
+</script>
+</body>
+</html>
