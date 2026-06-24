@@ -1,4 +1,5 @@
 import express from 'express'
+import {adduserData ,getUserById,searchUser,createUser,getProfile} from '../Controller/adduserData.js'
 
 const route = express.Router()
 
