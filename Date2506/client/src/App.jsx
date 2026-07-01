@@ -1,12 +1,18 @@
-import React from 'react'
+import {Routes,Route} from 'react-router-dom'
 import Register from './component/Register'
+import Login from './component/Login'
+import Dashboard from './component/Dashboard'
 
 const App = () => {
   return (
-    <div>
-      <Register/>
+    <Routes>
+     <Route path='/' element={<Login/>} />
+    <Route path='/Register' element={<Register/>} />
+    <Route path='/Dashboard' element={<Dashboard/>} />
 
-    </div>
+    </Routes>
+    
+  
   )
 }
 
